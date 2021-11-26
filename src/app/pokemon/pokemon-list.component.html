@@ -4,6 +4,13 @@
     <input type="text" [(ngModel)]="search" (ngModelChange)="searchPokemons()">
   </div>
 
+  <button *ngIf="pokemons.length" (click)="nextPokemons()">
+    Next
+  </button>
+
+  <input type="text" [(ngModel)]="offset">
+  <input type="text" [(ngModel)]="limit">
+
   <div class="pokemons">
     <div class="pokemon"
       [ngStyle]="{'background-color': getPokemonColor(pokemon)}"
@@ -13,8 +20,5 @@
     </div>
   </div>
 
-  <div class="not-found" *ngIf="!pokemons.length">
-    <h2>No pokemons to display</h2>
-    <img src="https://i.pinimg.com/originals/be/bf/7e/bebf7efd085d9e208aaf1c4f6c47cc42.png" alt="No pokemons">
-  </div>
+  <not-found *ngIf="!pokemons.length"></not-found>
 </div>
