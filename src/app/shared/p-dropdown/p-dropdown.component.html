@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Choose Generation</mat-label>
+  <mat-select (selectionChange)="onChange($event)">
+    <mat-option *ngFor="let item of data" [value]="item.code">
+      {{ item.code | generationText}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

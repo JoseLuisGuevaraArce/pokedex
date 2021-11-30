@@ -1,0 +1,4 @@
+<mat-form-field class="p-input" appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <input matInput autocomplete="off" placeholder="{{placeholder}}" [(ngModel)]="search" (ngModelChange)="onSearch($event)">
+</mat-form-field>

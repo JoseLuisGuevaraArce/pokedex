@@ -1,19 +1,24 @@
-<div>
-  <div class="header">
-    <div>
-      <span>Search Pokemon:</span>
-      <input type="text" [(ngModel)]="search" (ngModelChange)="searchPokemons()">
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <div class="center-items">
+      <p>Pokedex</p>
+      <mat-divider></mat-divider>
+      <br>
+      <input type="text" [(ngModel)]="offset">
+      <input type="text" [(ngModel)]="limit">
+      <button *ngIf="pokemons.length" (click)="nextPokemons()">Next</button>
+      <mat-divider></mat-divider>
+      <br>
+      <p-dropdown
+        [data]="generations"
+        (onSelection)="selectGeneration($event)"
+      ></p-dropdown>
     </div>
-  
-    <button *ngIf="pokemons.length" (click)="nextPokemons()">
-      Next
-    </button>
-  
-    <input type="text" [(ngModel)]="offset">
-    <input type="text" [(ngModel)]="limit">
-  </div>
+  </mat-sidenav>
 
-  <app-virtual-scroll [pokemons]="pokemons"></app-virtual-scroll>
-
-  <not-found *ngIf="!pokemons.length"></not-found>
-</div>
+  <mat-sidenav-content>
+    <header (onSearchText)="searchPokemons($event)" [sidenav]="sidenav"></header>
+    <app-virtual-scroll [pokemons]="pokemons"></app-virtual-scroll>
+    <not-found *ngIf="!pokemons.length"></not-found>
+  </mat-sidenav-content>
+</mat-sidenav-container>

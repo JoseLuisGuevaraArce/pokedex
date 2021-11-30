@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="toggle-sidenav">
+    <button mat-button (click)="sidenav.toggle()">Toggle</button>
+  </div>
+  <div class="search">
+    <p-input-text
+      [label]="'Search Pokemon'"
+      (onChangeSearch)="onSearch($event)"
+    ></p-input-text>
+  </div>
+</div>

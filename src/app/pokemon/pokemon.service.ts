@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Pokemon } from '../utils/types';
+import { Generation, Pokemon } from '../utils/types';
 import { environment } from 'src/environments/environment';
 
 
@@ -25,5 +25,15 @@ export class PokemonService {
   getPokemonImageUri(id: number): string {
     const imageId = ('00' + id).slice(-3); // para 1 => 001
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imageId}.png`;
+  }
+
+  getGenerationList(): Observable<Array<Generation>> {
+    return this.http.get<any>(`${environment.apiUrl}/generation`)
+      .pipe(map(item => item.results));
+  }
+
+  getGeneration(generation: number): Observable<Array<Pokemon>> {
+    return this.http.get<any>(`${environment.apiUrl}/generation/${generation}`)
+      .pipe(map(item => item.pokemon_species));
   }
 }

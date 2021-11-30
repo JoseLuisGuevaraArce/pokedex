@@ -8,6 +8,8 @@ import { PokemonListComponent } from './pokemon-list.component';
 import { PokemonDetailComponent } from './profile/pokemon-detail.component';
 import { NotFoundComponent } from '../commons/not-found.component';
 import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.component';
+import { SharedModule } from '../shared/shared.module';
+import { CommonsModule } from '../commons/commons.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.componen
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ScrollingModule
+    ScrollingModule,
+    SharedModule,
+    CommonsModule
   ],
   exports: [
     PokemonListComponent,

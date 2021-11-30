@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { PokemonModule } from './pokemon/pokemon.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    PokemonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PokemonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
