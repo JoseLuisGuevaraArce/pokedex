@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PDropdownComponent } from './p-dropdown/p-dropdown.component';
 import { PipesModule } from './pipes/pipes.module';
 import { PInputTextComponent } from './p-input-text/p-input-text.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PInputTextComponent } from './p-input-text/p-input-text.component';
     PInputTextComponent,
     MatDividerModule,
     MatSidenavModule,
-    PipesModule
+    PipesModule,
+    ComponentsModule
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { PInputTextComponent } from './p-input-text/p-input-text.component';
     MatSidenavModule,
     ReactiveFormsModule,
     FormsModule,
-    PipesModule
+    PipesModule,
+    ComponentsModule
   ]
 })
 

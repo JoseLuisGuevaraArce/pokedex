@@ -3,6 +3,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Pokemon } from 'src/app/utils/types';
 import { pokemonColorMap } from 'src/app/pokemon/pokemonColorHash';
 import { PokemonService } from 'src/app/pokemon/pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-virtual-scroll',
@@ -13,18 +14,23 @@ import { PokemonService } from 'src/app/pokemon/pokemon.service';
 
 export class VirtualScrollComponent {
 
+  items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+
   @Input() pokemons: Array<Pokemon> = [];
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(
+    private pokemonService: PokemonService,
+    private router: Router
+  ) { }
 
   getPokemonColor(pokemon: Pokemon): string {
     return pokemonColorMap[this.getPokemonIdFromUrl(pokemon.url)];
   }
 
-  getPokemonIdFromUrl(url: string): number {
+  getPokemonIdFromUrl(url: string): string {
     const parseUrl = url.split('/'),
     id = parseUrl[parseUrl.length - 2];
-    return +id;
+    return id;
   }
 
   getImageUri(pokemon: Pokemon): string {
@@ -41,5 +47,10 @@ export class VirtualScrollComponent {
       default:
         return 'white';
     }
+  }
+
+  goToPokemonDetails(pokemon: Pokemon) {
+    const id = this.getPokemonIdFromUrl(pokemon.url);
+    this.router.navigate([`/pokedex/${id}`]);
   }
 }

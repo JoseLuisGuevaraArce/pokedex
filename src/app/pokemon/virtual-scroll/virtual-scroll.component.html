@@ -1,7 +1,7 @@
-<cdk-virtual-scroll-viewport itemSize="5">
-  <div *cdkVirtualFor="let pokemon of pokemons | sort: 'name'; templateCacheSize: 0" class="pokemon"
-    [ngStyle]="{'background-color': getPokemonColor(pokemon)}">
-    <img [src]="getImageUri(pokemon)" [alt]="pokemon.name">
-    <p [ngStyle]="{'color': getTextColor(pokemon)}" class="name-pokemon">{{pokemon.name | titlecase}}</p>
+<cdk-virtual-scroll-viewport itemSize="50">
+  <div *cdkVirtualFor="let pokemon of pokemons | sort: 'name'; templateCacheSize: 10" class="pokemon"
+    [ngStyle]="{'background-color': getPokemonColor(pokemon)}"
+    (click)="goToPokemonDetails(pokemon)">
+    <pok-card [pokemon]="pokemon"></pok-card>
   </div>
 </cdk-virtual-scroll-viewport>

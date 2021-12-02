@@ -10,6 +10,8 @@ import { NotFoundComponent } from '../commons/not-found.component';
 import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommonsModule } from '../commons/commons.module';
+import { PokemonRoutingModule } from './pokemon-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { CommonsModule } from '../commons/commons.module';
     CommonsModule
   ],
   exports: [
+    PokemonRoutingModule,
     PokemonListComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
   ]
 })
 
