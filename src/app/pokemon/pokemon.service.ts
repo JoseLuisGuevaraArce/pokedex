@@ -20,6 +20,10 @@ export class PokemonService {
     const URL = `pokemon/${id}`;
     return this.http.get(`${environment.apiUrl}/${URL}`) as Observable<PokemonDetail>;
   }
+  getPokemonSpecies(id: string) {
+    const URL = `pokemon-species/${id}`;
+    return this.http.get(`${environment.apiUrl}/${URL}`);
+  }
 
   getPokemonList(offset: number, limit: number): Observable<Array<Pokemon>> {
     const URL = `pokemon/?offset=${offset}&limit=${limit}`;
