@@ -29,5 +29,15 @@ export type PokemonDetail = {
       name: string,
       url: string
     }
-  }[]
+  }[],
+  stats: Array<Stats>
+}
+
+export type Stats = {
+  base_stat: number,
+  stat: Stat
+}
+
+export type Stat = {
+  name: string
 }
