@@ -11,7 +11,7 @@ import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.componen
 import { SharedModule } from '../shared/shared.module';
 import { CommonsModule } from '../commons/commons.module';
 import { PokemonRoutingModule } from './pokemon-routing.module';
-
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -22,16 +22,19 @@ import { PokemonRoutingModule } from './pokemon-routing.module';
   ],
   imports: [
     BrowserModule,
+    CommonsModule,
+    ComponentsModule,
     FormsModule,
     HttpClientModule,
     ScrollingModule,
-    SharedModule,
-    CommonsModule
+    SharedModule
   ],
   exports: [
-    PokemonRoutingModule,
-    PokemonListComponent,
+    CommonsModule,
+    ComponentsModule,
     PokemonDetailComponent,
+    PokemonListComponent,
+    PokemonRoutingModule
   ]
 })
 
