@@ -4,9 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Generation, Pokemon, PokemonDetail } from '../utils/types';
+import { Chain, Generation, Pokemon, PokemonDetail } from '../utils/types';
 import { environment } from 'src/environments/environment';
-
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +44,9 @@ export class PokemonService {
     return this.http.get<any>(`${environment.apiUrl}/generation/${generation}`)
       .pipe(map(item => item.pokemon_species));
   }
-}
+
+  getPokemonEvolution(id: string) {
+    return this.http.get<any>(`${environment.apiUrl}/evolution-chain/${id}`)
+      .pipe(map(item => item.chain)) as Observable<Chain>;
+  }
+};

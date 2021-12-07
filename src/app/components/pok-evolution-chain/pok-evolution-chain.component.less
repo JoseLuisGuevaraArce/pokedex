@@ -1,0 +1,22 @@
+.pok-evolution-chain {
+  width: 50%;
+  margin: auto;
+  background-color: lightgray;
+  .wrapper-evolution {
+    display: flex;
+    justify-content: space-around;
+    .wrap-pokemon {
+      display: flex;
+      align-items: center;
+      .wrap-content {
+        text-align: center;
+      }
+      mat-icon {
+        font-size: 110px;
+      }
+    }
+    .wrap-pokemon:nth-last-child(1) mat-icon {
+      display: none;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 import { Location } from '@angular/common';
-import { isNgTemplate } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { Subscription } from 'rxjs';
+
 import { PokemonDetail } from 'src/app/utils/types';
 import { PokemonService } from '../pokemon.service';
-
 import { pokemonTypeColorMap } from "src/app/pokemon/pokemonColorHash";
-
 import {pokemonImageHash} from '../pokemonGameImgHash';
 
 @Component({

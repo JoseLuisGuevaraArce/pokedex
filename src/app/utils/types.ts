@@ -41,3 +41,10 @@ export type Stats = {
 export type Stat = {
   name: string
 }
+
+export type Chain = {
+  evolves_to: Chain[],
+  species: {
+      name: string
+  }
+}

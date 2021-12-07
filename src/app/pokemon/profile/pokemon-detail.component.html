@@ -23,6 +23,10 @@
     <pok-stats [stats]="pokemonDetail?.stats"></pok-stats>
   </div>
   
+  <div *ngIf="pokemonSpecies">
+    <pok-evolution-chain [evolutionChain]="pokemonSpecies.evolution_chain"></pok-evolution-chain>
+  </div>
+
   <div>
     <span>Enter Language</span>
     <input [(ngModel)]="language" (ngModelChange)="refreshDescriptions()" type="text">
