@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
-import { GenerationTextPipe } from './generation-text/generation-text.pipe';
 import { SortPipe } from './sort/sort.pipe';
-import { TransformTextPipe } from './text/transform-text.pipe';
+import { HyphenTextPipe } from './hyphenText/hyphen-text.pipe';
 
 @NgModule({
   declarations: [
-    GenerationTextPipe,
     SortPipe,
-    TransformTextPipe
+    HyphenTextPipe
   ],
   exports: [
-    GenerationTextPipe,
     SortPipe,
-    TransformTextPipe
+    HyphenTextPipe
   ],
   imports: [
   ]

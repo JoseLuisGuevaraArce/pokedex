@@ -3,7 +3,7 @@
   <div class="wrap-stats">
     <div *ngFor="let stat of stats">
       <div class="wrap-text">
-        <h3 class="mat-h3">{{stat.stat.name | transformText}}</h3>
+        <h3 class="mat-h3">{{stat.stat.name | hyphenText}}</h3>
         <h3 class="mat-h3">{{stat.base_stat}}%</h3>
       </div>
       <mat-progress-bar

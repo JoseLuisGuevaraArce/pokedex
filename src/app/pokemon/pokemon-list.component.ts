@@ -1,73 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { PokemonService } from './pokemon.service';
-import { Generation, Pokemon } from '../utils/types';
-
+import { Pokemon } from '../utils/types';
 
 @Component({
   selector: 'pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.less']
+  styleUrls: ['./pokemon-list.component.less'],
 })
 
 export class PokemonListComponent implements OnInit {
 
-  offset: number = 0;
+  generations: any[] = [];
   opened = true;
-  limit: number = 50;
   pokemons: Pokemon[] = [];
   private pokemonList: Pokemon[] = [];
 
-  generations: any[] = [];
-
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private router: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getPokemons();
-    this.getGenerations();
+    this.pokemons = this.router.snapshot.data.pokemons;
   }
-
-  getPokemons():void {
-    this.pokemonService.getPokemonList(this.offset, this.limit).subscribe((payload: Array<Pokemon>) => {
-      this.pokemonList = payload;
-      this.pokemons = this.pokemonList;
-    });
-  }
-
-  getGenerations():void {
-    this.pokemonService.getGenerationList().subscribe((payload: Array<Generation>) => {
-      this.generations = payload.map((gen: any) => {
-        return {code: gen.name}
-      });
-    });
+  
+  showGeneration(pokemons: Pokemon[]): void {
+    this.pokemons = pokemons;
   }
 
   searchPokemons(search: string):void {
     this.pokemons = this.pokemonList.filter(item => !item.name.indexOf(search));
-  }
-
-  selectGeneration(value: string) {
-    this.pokemonService.getGeneration(this.getGenerationIndex(value))
-      .subscribe((payload: Array<Pokemon>) => {
-        this.pokemonList = payload;
-        this.pokemons = this.pokemonList;
-      });
-  }
-
-  getGenerationIndex(value: string): number {
-    return [
-      'generation-i',
-      'generation-ii',
-      'generation-iii',
-      'generation-iv',
-      'generation-v',
-      'generation-vi',
-      'generation-vii',
-      'generation-viii'
-    ].findIndex(code => code === value) + 1;
-  }
-
-  nextPokemons(): void {
-    this.getPokemons()
   }
 }

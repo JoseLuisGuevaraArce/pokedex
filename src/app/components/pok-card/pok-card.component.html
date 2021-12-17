@@ -1,2 +1,4 @@
-<img [src]="getImageUri(pokemon)" [alt]="pokemon?.name"/>
-<p [ngStyle]="{'color': getTextColor(pokemon)}" class="name-pokemon">{{pokemon?.name | titlecase}}</p>
+<div class="pokemon-card">
+  <img [src]="getImageUri(pokemon)" [alt]="pokemon?.name"/>
+  <p [ngStyle]="{'color': getTextColor(pokemon)}" class="name-pokemon">{{pokemon?.name | titlecase}}</p>
+</div>

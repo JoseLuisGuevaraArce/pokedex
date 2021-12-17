@@ -33,6 +33,11 @@ export type PokemonDetail = {
   stats: Array<Stats>
 }
 
+export type PokemonSpecies = {
+  names: [],
+  evolution_chain: string
+}
+
 export type Stats = {
   base_stat: number,
   stat: Stat

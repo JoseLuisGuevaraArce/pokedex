@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'transformText'
+  name: 'hyphenText'
 })
 
-export class TransformTextPipe implements PipeTransform {
+export class HyphenTextPipe implements PipeTransform {
 
   transform(item: string): any {
     if (item) {

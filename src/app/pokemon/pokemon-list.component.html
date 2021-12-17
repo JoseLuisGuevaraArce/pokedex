@@ -3,16 +3,7 @@
     <div class="center-items">
       <p>Pokedex</p>
       <mat-divider></mat-divider>
-      <br>
-      <input type="text" [(ngModel)]="offset">
-      <input type="text" [(ngModel)]="limit">
-      <button *ngIf="pokemons.length" (click)="nextPokemons()">Next</button>
-      <mat-divider></mat-divider>
-      <br>
-      <p-dropdown
-        [data]="generations"
-        (onSelection)="selectGeneration($event)"
-      ></p-dropdown>
+      <pok-generation (onShowGeneration)="showGeneration($event)"></pok-generation>
     </div>
   </mat-sidenav>
 

@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
+
 import { PokemonService } from "src/app/pokemon/pokemon.service";
+import { getPokemonIdFromUrl } from "src/app/pokemon/pokemon-helper";
 import { pokemonColorMap } from "src/app/pokemon/pokemonColorHash";
 import { Pokemon } from "src/app/utils/types";
 
@@ -20,13 +22,7 @@ export class PokCardComponent {
       return '';
     }
 
-    return this.pokemonService.getPokemonImageUri(this.getPokemonIdFromUrl(pokemon.url));
-  }
-
-  getPokemonIdFromUrl(url: string): string {
-    const parseUrl = url.split('/'),
-    id = parseUrl[parseUrl.length - 2];
-    return id;
+    return this.pokemonService.getPokemonImageUri(getPokemonIdFromUrl(pokemon.url));
   }
 
   getTextColor(pokemon?: Pokemon): string {
@@ -45,6 +41,6 @@ export class PokCardComponent {
   }
 
   getPokemonColor(pokemon: Pokemon): string {
-    return pokemonColorMap[this.getPokemonIdFromUrl(pokemon.url)];
+    return pokemonColorMap[getPokemonIdFromUrl(pokemon.url)];
   }
 }

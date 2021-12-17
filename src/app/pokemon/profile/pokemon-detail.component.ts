@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import { PokemonDetail } from 'src/app/utils/types';
 import { PokemonService } from '../pokemon.service';
 import { pokemonTypeColorMap } from "src/app/pokemon/pokemonColorHash";
-import {pokemonImageHash} from '../pokemonGameImgHash';
+import { pokemonImageHash } from '../pokemonGameImgHash';
 
 @Component({
   selector: 'pokemon-detail',
@@ -32,15 +32,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id') || '1';
-    this.pokemonDetailSubscription = this.pokemonService.getPokemon(this.id)
-      .subscribe(pokemonDetail => this.pokemonDetail = pokemonDetail)
-
-    this.pokemonSpeciesSubscription = this.pokemonService.getPokemonSpecies(this.id)
-      .subscribe((pokemonSpecies: any )=> {
-        this.pokemonSpecies = pokemonSpecies;
-        this.gameDescription = this.filterDescriptionsByLanguage(pokemonSpecies);
-      })
+    this.pokemonDetail = this.route.snapshot.data.pokemons;
+    this.pokemonSpecies = this.route.snapshot.data.species;
   }
 
   refreshDescriptions() {
@@ -53,7 +46,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   }
 
   getImageUri() {
-    return this.pokemonService.getPokemonImageUri(this.id);
+    return this.pokemonService.getPokemonImageUri(this.pokemonDetail!.id);
   }
 
   filterDescriptionsByLanguage(species: any): void {
