@@ -1,42 +1,47 @@
 <div class="pokemon-detail">
-  <button (click)="goBack()">goBack</button>
-  
-  <div class="pokemon-container">
-    <div>
-      <img [src]="getImageUri()" alt="pokemon">
-      <div>
-        <p>Name: {{pokemonDetail?.name}}</p>
-        <p>Height: {{pokemonDetail?.height}}</p>
-        <p>Weight: {{pokemonDetail?.weight}}</p>
-    
-        <div class="pokemon-type">
-          <div
-            class="type-color"
-            [ngStyle]="{'background-color': getColorByType(type.type.name)}"
-            *ngFor="let type of pokemonDetail?.types">
-            <span>{{type.type.name}}</span>
-          </div>
-        </div>
+  <div class="wrapper-detail">
+    <div class="left-column">
+      <pok-card-detail [pokemonDetail]="pokemonDetail"></pok-card-detail>
+      <div class="abilities">
+        <h3>Abilities</h3>
+        <ul>
+          <li *ngFor="let detail of pokemonDetail?.abilities">
+            <p class="capitalize">{{detail.ability.name | hyphenText}}</p>
+          </li>
+        </ul>
       </div>
     </div>
-
-    <pok-stats [stats]="pokemonDetail?.stats"></pok-stats>
-  </div>
   
-  <div *ngIf="pokemonSpecies">
-    <pok-evolution-chain [evolutionChain]="pokemonSpecies.evolution_chain"></pok-evolution-chain>
-  </div>
-
-  <div>
-    <span>Enter Language</span>
-    <input [(ngModel)]="language" (ngModelChange)="refreshDescriptions()" type="text">
-  </div>
-  
-  <div *ngIf="!!pokemonSpecies">
-    <p>Pokemon Name by Language: {{getNameBylanguage(pokemonSpecies?.names)}}</p>
-    <div class="game-description" *ngFor="let description of gameDescription">
-      <img [src]="getGameImg(description.version.name)" alt="description.version">
-      <p>{{description.flavor_text}}</p>
+    <div class="right-column">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Stats
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <pok-stats [stats]="pokemonDetail?.stats"></pok-stats>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Evolution
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <pok-evolution-chain [evolutionChain]="pokemonSpecies!.evolution_chain"></pok-evolution-chain>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Language
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <pok-language [species]="pokemonSpecies!"></pok-language>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
 </div>

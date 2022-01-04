@@ -1,0 +1,45 @@
+@import "/src/app/styles/constants";
+
+.center-items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 40px);
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  a img {
+    width: 150px;
+    &:hover {
+      opacity: .9;
+    }
+  }
+  pok-generation {
+    margin-top: 20px;
+  }
+}
+
+.image-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: url('../../assets/pokemon2.jpg');
+  background-position: 195% 50%;
+  background-size: cover;
+}
+
+.layer {
+  background-color: @BLACK;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: .6;
+}

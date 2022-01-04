@@ -1,0 +1,16 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <div class="center-items">
+      <a routerLink="/pokedex"><img [src]="'assets/pokeball.png'"></a>
+      <mat-label class="theme">POKEDEX</mat-label>
+      <pok-generation [generations]="generations" (onShowGeneration)="showGeneration($event)"></pok-generation>
+    </div>
+    <div class="image-background"></div>
+    <div class="layer"></div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <header (onSearchText)="searchPokemons($event)" [sidenav]="sidenav"></header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

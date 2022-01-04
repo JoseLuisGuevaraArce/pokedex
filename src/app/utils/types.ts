@@ -1,3 +1,8 @@
+export type Generic = {
+  name: string,
+  url: string
+}
+
 export type Pokemon = {
   name: string,
   url: string
@@ -5,25 +10,27 @@ export type Pokemon = {
 
 export type Generation = {
   code: string,
-  value: string
+  text: string
+}
+
+export type Game = {
+  flavor_text: string,
+  language: Generic
+  version: Generic
 }
 
 export type PokemonDetail = {
-  abilities: any[],
+  abilities: Abilities[],
   base_experience: number,
-  forms: any[],
-  game_indices: any[],
+  forms: Pokemon[],
   height: number,
   weight: number,
-  held_items: any[],
   id: number,
   is_default: boolean,
   location_area_encounters: string,
-  moves: any[],
   name: string,
   order: number,
-  past_types: any[],
-  species: {name: string, url: string},
+  species: Generic,
   types: {
     type: {
       name: string,
@@ -34,8 +41,9 @@ export type PokemonDetail = {
 }
 
 export type PokemonSpecies = {
-  names: [],
-  evolution_chain: string
+  names: Language[],
+  evolution_chain: EvolutionChain,
+  flavor_text_entries: Game[]
 }
 
 export type Stats = {
@@ -50,6 +58,19 @@ export type Stat = {
 export type Chain = {
   evolves_to: Chain[],
   species: {
-      name: string
+      name: string,
+      url: string
   }
+}
+export type EvolutionChain = {
+  url: string;
+}
+
+export type Language = {
+  language: Generic,
+  name: string
+}
+
+export type Abilities = {
+  ability: Generic;
 }

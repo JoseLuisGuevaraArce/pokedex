@@ -1,8 +1,10 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription, forkJoin, Observable } from 'rxjs';
+import { getPokemonImageUri } from 'src/app/pokemon/pokemon-helper';
 import { PokemonService } from 'src/app/pokemon/pokemon.service';
+import { EvolutionChain, Pokemon, PokemonDetail, Chain } from 'src/app/utils/types';
 
 @Component({
   selector: 'pok-evolution-chain',
@@ -11,9 +13,9 @@ import { PokemonService } from 'src/app/pokemon/pokemon.service';
 })
 export class PokEvolutionChainComponent implements OnInit, OnDestroy {
 
-  @Input() evolutionChain?: any;
-  evolution: any[] = [];
-  pokemons: any[] = [];
+  @Input() evolutionChain!: EvolutionChain;
+  evolution: Pokemon[] = [];
+  pokemons: PokemonDetail[] = [];
   pokemonEvolutionSubscription?: Subscription;
   pokemonSubscription?: Subscription;
 
@@ -48,13 +50,11 @@ export class PokEvolutionChainComponent implements OnInit, OnDestroy {
     const observable = forkJoin(this.engineServiceCall());
 
     observable.subscribe({
-      next: value => {
-        this.pokemons = value;
-      }
-    })
+      next: value => this.pokemons = value
+    });
   }
 
-  goToPokemon(id:string) {
+  goToPokemon(id:number) {
     this.router.navigate([`/pokedex/${id}`])
       .then(() => {
         window.location.reload();
@@ -62,7 +62,7 @@ export class PokEvolutionChainComponent implements OnInit, OnDestroy {
   }
 
   engineServiceCall() {
-    const func: any = [];
+    const func: Observable<PokemonDetail>[] = [];
     this.evolution.forEach(item => {
       func.push(this.pokemonService.getPokemon(this.getIdentifier(item.url)))
     })
@@ -70,11 +70,11 @@ export class PokEvolutionChainComponent implements OnInit, OnDestroy {
     return func;
   }
 
-  getImageUri(id: string) {
-    return this.pokemonService.getPokemonImageUri(id);
+  getImageUri(id: number) {
+    return getPokemonImageUri(id);
   }
 
-  recursiveMap(evolution: any) {
+  recursiveMap(evolution: Chain) {
     if (evolution.evolves_to.length === 0) {
       this.evolution.push(evolution.species);
       return;

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { PokemonService } from 'src/app/pokemon/pokemon.service';
-import { Pokemon } from 'src/app/utils/types';
+import { Generation, Pokemon, Generic } from 'src/app/utils/types';
 
 const GENERATION_CODES: Record<string, string> = {
   'generation-i': 'Generation 1',
@@ -21,16 +21,15 @@ const GENERATION_CODES: Record<string, string> = {
 })
 export class PokGenerationComponent implements OnInit {
 
-  @Input() generations: Array<any> = [];
+  @Input() generations: Array<Generic> = [];
   @Output() onShowGeneration = new EventEmitter<Pokemon[]>();
+  customGeneration: Array<Generation> = [];
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonService.getGenerationList().subscribe(payload => {
-      this.generations = payload.map((gen: any) => {
-        return {code: gen.name, text: GENERATION_CODES[gen.name]}
-      });
+    this.customGeneration = this.generations.map(gen => {
+      return {code: gen.name, text: GENERATION_CODES[gen.name]}
     });
   }
 

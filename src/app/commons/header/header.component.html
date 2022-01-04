@@ -1,6 +1,7 @@
 <div class="header">
   <div class="toggle-sidenav">
-    <button mat-button (click)="sidenav.toggle()">Toggle</button>
+    <mat-icon *ngIf="!sidenav.opened" class="arrow" (click)="sidenav.toggle()">keyboard_double_arrow_right</mat-icon>
+    <mat-icon *ngIf="sidenav.opened" class="arrow" (click)="sidenav.toggle()">keyboard_double_arrow_left</mat-icon>
   </div>
   <div class="search">
     <p-input-text

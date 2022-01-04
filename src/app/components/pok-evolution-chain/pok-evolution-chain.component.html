@@ -1,10 +1,9 @@
 <div class="pok-evolution-chain">
-  <h2 class="mat-title">Evolutions</h2>
   <div class="wrapper-evolution">
     <div *ngFor="let pokemon of pokemons" (click)="goToPokemon(pokemon.id)" class="wrap-pokemon">
       <div class="wrap-content">
         <img [src]="getImageUri(pokemon.id)" alt="pokemon">
-        <h1>{{pokemon.name}}</h1>
+        <h1>{{pokemon.name | titlecase}}</h1>
         <h1>#{{pokemon.id}}</h1>
       </div>
       <mat-icon>trending_flat</mat-icon>

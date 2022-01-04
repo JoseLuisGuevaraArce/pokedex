@@ -1,8 +1,9 @@
 import { Component, Input } from "@angular/core";
 
-import { PokemonService } from "src/app/pokemon/pokemon.service";
-import { getPokemonIdFromUrl } from "src/app/pokemon/pokemon-helper";
-import { pokemonColorMap } from "src/app/pokemon/pokemonColorHash";
+import {
+  getPokemonIdFromUrl,
+  getPokemonImageUri,
+  getRightTextColor} from "src/app/pokemon/pokemon-helper";
 import { Pokemon } from "src/app/utils/types";
 
 @Component({
@@ -13,34 +14,15 @@ import { Pokemon } from "src/app/utils/types";
 
 export class PokCardComponent {
 
-  @Input() pokemon?: Pokemon;
+  @Input() pokemon!: Pokemon;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor() {}
 
-  getImageUri(pokemon?: Pokemon): string {
-    if (!pokemon) {
-      return '';
-    }
-
-    return this.pokemonService.getPokemonImageUri(getPokemonIdFromUrl(pokemon.url));
+  getImageUri(): string {
+    return getPokemonImageUri(getPokemonIdFromUrl(this.pokemon.url));
   }
 
-  getTextColor(pokemon?: Pokemon): string {
-    if (!pokemon) {
-      return '';
-    }
-    const pokemonColor = this.getPokemonColor(pokemon);
-    
-    switch (pokemonColor) {
-      case '#fbf6f6':
-      case '#f0f060e6':
-        return 'black';
-      default:
-        return 'white';
-    }
-  }
-
-  getPokemonColor(pokemon: Pokemon): string {
-    return pokemonColorMap[getPokemonIdFromUrl(pokemon.url)];
+  getColorText(): string {
+    return getRightTextColor(this.pokemon);
   }
 }

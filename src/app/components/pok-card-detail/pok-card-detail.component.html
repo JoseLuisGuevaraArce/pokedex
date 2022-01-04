@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{pokemonDetail?.name | titlecase}}</mat-card-title>
+  </mat-card-header>
+  <div class="wrapper-image">
+    <img mat-card-image [src]="getImageUri()" alt="Pokemon">
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <p><b>Height:</b> {{pokemonDetail?.height}}</p>
+    <p><b>Weight:</b> {{pokemonDetail?.weight}}</p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-footer>
+    <div class="pokemon-type">
+      <h3>Type</h3>
+      <div class="wrapp-type">
+        <div class="type-color"
+          [ngStyle]="{'background-color': getColorByType(type.type.name)}"
+          *ngFor="let type of pokemonDetail?.types">
+          <span>{{type.type.name | titlecase}}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card-footer>
+</mat-card>

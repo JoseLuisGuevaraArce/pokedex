@@ -1,0 +1,12 @@
+<div>
+  <span>Enter Language</span>
+  <input [(ngModel)]="language" (ngModelChange)="refreshDescriptions()" type="text">
+</div>
+
+<div>
+  <p>Pokemon Name by Language: {{getNameBylanguage()}}</p>
+  <div class="game-description" *ngFor="let description of gameDescription">
+    <img [src]="getGameImg(description.version.name)" alt="description.version">
+    <p>{{description.flavor_text}}</p>
+  </div>
+</div>

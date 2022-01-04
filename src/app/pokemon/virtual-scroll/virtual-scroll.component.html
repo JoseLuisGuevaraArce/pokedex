@@ -1,6 +1,6 @@
 <cdk-virtual-scroll-viewport itemSize="50" minBufferPx="200" maxBufferPx="400">
   <div *cdkVirtualFor="let pokemon of pokemons | sort: 'name'" class="pokemon"
-    [ngStyle]="{'background-color': getPokemonColor(pokemon)}"
+    [ngStyle]="{'background-color': getColor(pokemon)}"
     (click)="goToPokemonDetails(pokemon)">
     <pok-card [pokemon]="pokemon"></pok-card>
   </div>

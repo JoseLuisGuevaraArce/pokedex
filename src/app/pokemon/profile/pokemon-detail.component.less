@@ -1,35 +1,37 @@
-@import '../../app.component.less';
+// @import '../../app.component.less';
+@import "/src/app/styles/constants";
 
 .pokemon-detail {
-  overflow-y: scroll;
   height: 100vh;
-  .pokemon-container {
+  overflow-y: scroll;
+  padding-top: 60px;
+  background-color: @MAIN_BACKGROUND;
+  .wrapper-detail {
     display: flex;
-    justify-content: space-around;
-    .pokemon-type {
-      display: flex;
-      .type-color {
-        flex: 1;
-        border-radius: 5px;
-        padding:  1px 15px;
-        margin: 0 5px;
-        span {
-          color: white;
-          text-align: center;
-        }
+    padding: 20px;
+    .left-column {
+      width: 30%;
+    }
+    .left-column {
+      .abilities {
+        width: 29em;
+        margin: auto;
+        margin-top: 10px;
+        border-radius: 4px;
+        padding: 15px;
+        background-color: #9f5a26;
+        color: white;
       }
-      
+    }
+    .right-column {
+      width: 70%;
+      mat-accordion {
+        width: 98%;
+      }
     }
   }
-  
-  .game-description {
-    display: flex;
-    flex: 1;
-  
-    img {
-      height: 150px;
-      width: auto;
-      margin: 15px;
-    }
-  }
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }

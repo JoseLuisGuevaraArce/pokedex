@@ -2,23 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { PokemonListComponent } from './pokemon-list.component';
+import { CommonsModule } from '../commons/commons.module';
+import { ComponentsModule } from '../components/components.module';
+import { PokemonRoutingModule } from './pokemon-routing.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { PokemonDetailComponent } from './profile/pokemon-detail.component';
 import { NotFoundComponent } from '../commons/not-found.component';
 import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.component';
-import { SharedModule } from '../shared/shared.module';
-import { CommonsModule } from '../commons/commons.module';
-import { PokemonRoutingModule } from './pokemon-routing.module';
-import { ComponentsModule } from '../components/components.module';
+import { PokemonPagesComponent } from './pokemon-pages.component';
 
 @NgModule({
   declarations: [
-    PokemonListComponent,
     PokemonDetailComponent,
     NotFoundComponent,
-    VirtualScrollComponent
+    VirtualScrollComponent,
+    PokemonPagesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,13 +29,13 @@ import { ComponentsModule } from '../components/components.module';
     FormsModule,
     HttpClientModule,
     ScrollingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     CommonsModule,
     ComponentsModule,
     PokemonDetailComponent,
-    PokemonListComponent,
     PokemonRoutingModule
   ]
 })

@@ -1,5 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "/src/app/styles/constants";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-y: hidden;}
 h3 { text-transform: capitalize; }
+
+.theme {
+  color: @POKEMON_LIGHT;
+}
+
+.mat-select-arrow, .mat-select-value {
+  color: @POKEMON_LIGHT;
+}
+.mat-form-field-label {
+  color: @POKEMON_LIGHT!important;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

@@ -6,9 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class HyphenTextPipe implements PipeTransform {
 
-  transform(item: string): any {
+  transform(item: string): string {
     if (item) {
       return item.replace('-', ' ');
     }
+    return '';
   }
 }

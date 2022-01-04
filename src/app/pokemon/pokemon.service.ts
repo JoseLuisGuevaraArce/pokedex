@@ -30,11 +30,6 @@ export class PokemonService {
       .pipe(map(item => item.results));
   }
 
-  getPokemonImageUri(id: string | number): string {
-    const imageId = ('00' + id).slice(-3); // para 1 => 001
-    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imageId}.png`;
-  }
-
   getGenerationList(): Observable<Array<Generation>> {
     return this.http.get<any>(`${environment.apiUrl}/generation`)
       .pipe(map(item => item.results));
