@@ -74,3 +74,8 @@ export type Language = {
 export type Abilities = {
   ability: Generic;
 }
+
+export type Option = {
+  label: string;
+  value: string
+}

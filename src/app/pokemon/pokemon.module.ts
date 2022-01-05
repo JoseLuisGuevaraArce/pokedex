@@ -33,9 +33,6 @@ import { PokemonPagesComponent } from './pokemon-pages.component';
     RouterModule
   ],
   exports: [
-    CommonsModule,
-    ComponentsModule,
-    PokemonDetailComponent,
     PokemonRoutingModule
   ]
 })
