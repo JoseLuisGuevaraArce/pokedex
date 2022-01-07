@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   constructor(private themeService: StyleManagerService) {}
   
   ngOnInit(): void {
-    this.themeService.setStyle('Deep Purple & Amber');
+    this.themeService.setStyle('pink-bluegrey');
   }
 
   onSearch(data:string):void {

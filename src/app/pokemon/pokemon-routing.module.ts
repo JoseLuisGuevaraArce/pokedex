@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { PokemonResolverService } from "../shared/resolvers/pokemon-resolver.service";
 import { PokemonsResolverService } from "../shared/resolvers/pokemons-resolver.service";
 
+import { PokemonAddComponent } from "./add/pokemon-add.component";
 import { PokemonDetailComponent } from "./profile/pokemon-detail.component";
 import { PokemonPagesComponent } from "./pokemon-pages.component";
 import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.component";
@@ -21,6 +22,10 @@ const routes: Routes = [
         component: VirtualScrollComponent,
       },
       {
+        path: 'add-pokemon',
+        component: PokemonAddComponent
+      },
+      {
         path: ':id',
         component: PokemonDetailComponent,
         resolve: {
@@ -28,8 +33,7 @@ const routes: Routes = [
         }
       }
     ]
-  },
-  {path: '', redirectTo: 'pokedex', pathMatch: 'full'}
+  }
 ];
 
 @NgModule({

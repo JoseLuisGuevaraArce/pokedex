@@ -7,15 +7,18 @@ import { StyleManagerService } from "./header/style-manager.service";
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from "./menu/menu.component";
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    AddComponent
   ],
   exports: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

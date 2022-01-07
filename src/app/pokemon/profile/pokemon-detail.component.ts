@@ -18,7 +18,7 @@ export class PokemonDetailComponent implements OnInit {
 
   ngOnInit() {
     const details = this.route.snapshot.data.details;
-    this.pokemonDetail = details[0];
-    this.pokemonSpecies = details[1];
+    this.pokemonDetail = details[0] || {};
+    this.pokemonSpecies = details[1] || {};
   }
 }

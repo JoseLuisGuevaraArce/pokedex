@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -14,19 +14,22 @@ import { PokemonDetailComponent } from './profile/pokemon-detail.component';
 import { NotFoundComponent } from '../commons/not-found.component';
 import { VirtualScrollComponent } from './virtual-scroll/virtual-scroll.component';
 import { PokemonPagesComponent } from './pokemon-pages.component';
+import { PokemonAddComponent } from './add/pokemon-add.component';
 
 @NgModule({
   declarations: [
     PokemonDetailComponent,
     NotFoundComponent,
     VirtualScrollComponent,
-    PokemonPagesComponent
+    PokemonPagesComponent,
+    PokemonAddComponent
   ],
   imports: [
     BrowserModule,
     CommonsModule,
     ComponentsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ScrollingModule,
     SharedModule,
