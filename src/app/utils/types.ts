@@ -56,6 +56,7 @@ export type Stat = {
 }
 
 export type Chain = {
+  evolution_details: EvolutionDetails[]
   evolves_to: Chain[],
   species: {
       name: string,
@@ -78,4 +79,8 @@ export type Abilities = {
 export type Option = {
   label: string;
   value: string
+}
+
+export type EvolutionDetails = {
+  min_level: number
 }

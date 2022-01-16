@@ -1,10 +1,23 @@
 <div class="pok-evolution-chain">
   <div class="wrapper-evolution">
-    <div *ngFor="let pokemon of pokemons" (click)="goToPokemon(pokemon.id)" class="wrap-pokemon">
+    <div *ngFor="let pokemon of pokemons; let i = index" (click)="goToPokemon(pokemon.id)" class="wrap-pokemon">
       <div class="wrap-content">
         <img [src]="getImageUri(pokemon.id)" alt="pokemon">
-        <h1>{{pokemon.name | titlecase}}</h1>
-        <h1>#{{pokemon.id}}</h1>
+        <mat-list dense>
+          <mat-list-item>
+            <h3 matLine>Pokemon Name:</h3>
+            <p matLine>{{pokemon.name | titlecase}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 matLine>Pokemon Code:</h3>
+            <p matLine>#{{pokemon.id}}</p>
+          </mat-list-item>
+          <mat-list-item *ngIf="evolution[i].evolution_details.length !== 0">
+            <h3 matLine>Required Level Evolution:</h3>
+            <p matLine>{{evolution[i].evolution_details[0].min_level}}</p>
+          </mat-list-item>
+         </mat-list>
+        
       </div>
       <mat-icon>trending_flat</mat-icon>
     </div>

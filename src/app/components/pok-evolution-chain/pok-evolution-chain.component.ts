@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription, forkJoin, Observable } from 'rxjs';
 import { getPokemonImageUri } from 'src/app/pokemon/pokemon-helper';
 import { PokemonService } from 'src/app/pokemon/pokemon.service';
-import { EvolutionChain, Pokemon, PokemonDetail, Chain } from 'src/app/utils/types';
+import { EvolutionChain, PokemonDetail, Chain } from 'src/app/utils/types';
 
 @Component({
   selector: 'pok-evolution-chain',
@@ -14,7 +14,7 @@ import { EvolutionChain, Pokemon, PokemonDetail, Chain } from 'src/app/utils/typ
 export class PokEvolutionChainComponent implements OnInit, OnDestroy {
 
   @Input() evolutionChain!: EvolutionChain;
-  evolution: Pokemon[] = [];
+  evolution: Chain[] = [];
   pokemons: PokemonDetail[] = [];
   pokemonEvolutionSubscription?: Subscription;
   pokemonSubscription?: Subscription;
@@ -64,7 +64,7 @@ export class PokEvolutionChainComponent implements OnInit, OnDestroy {
   engineServiceCall() {
     const func: Observable<PokemonDetail>[] = [];
     this.evolution.forEach(item => {
-      func.push(this.pokemonService.getPokemon(this.getIdentifier(item.url)))
+      func.push(this.pokemonService.getPokemon(this.getIdentifier(item.species.url)))
     })
 
     return func;
@@ -75,17 +75,23 @@ export class PokEvolutionChainComponent implements OnInit, OnDestroy {
   }
 
   recursiveMap(evolution: Chain) {
+    const evolutionDetails: Chain = {
+      'evolution_details': evolution.evolution_details,
+      'evolves_to': evolution.evolves_to,
+      'species': evolution.species
+    }
+
     if (evolution.evolves_to.length === 0) {
-      this.evolution.push(evolution.species);
+      this.evolution.push(evolutionDetails);
       return;
     }
 
-    this.evolution.push(evolution.species);
+    this.evolution.push(evolutionDetails);
     this.recursiveMap(evolution.evolves_to[0])
   }
 
   getIdentifier(url: string): string {
-    const pathSplit = url.substr(url.indexOf('v2') + 3),
+    const pathSplit = url.substring(url.indexOf('v2') + 3),
       path = pathSplit.substr(0, pathSplit.indexOf('/'));
     return url.substring(url.indexOf(path) + path.length + 1).replace('/', '');
   }
