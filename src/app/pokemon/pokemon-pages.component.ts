@@ -13,7 +13,7 @@ import { PokemonSyncService } from './pokemonSync.service';
 export class PokemonPagesComponent implements OnInit {
 
   generations: Generic[] = [];
-  opened = true;
+  opened = false;
   pokemons: Pokemon[] = [];
   private pokemonList: Pokemon[] = [];
 

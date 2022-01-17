@@ -2,7 +2,7 @@
 @import "/src/app/styles/constants";
 
 .pokemon-detail {
-  height: 100vh;
+  height: 90vh;
   overflow-y: scroll;
   background-color: @MAIN_BACKGROUND;
   .wrapper-detail {
@@ -33,4 +33,22 @@
 
 .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+@media (max-width: 844px) {
+  .pokemon-detail {
+    .wrapper-detail {
+      flex-direction: column;
+      .left-column, .right-column {
+        width: 100%;
+      }
+      .left-column {
+        .abilities {
+          width: 90%;
+          padding: 5%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }
