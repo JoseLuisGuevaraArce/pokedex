@@ -1,0 +1,95 @@
+{
+  "configVersion": 1,
+  "timestamp": 1642382649652,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.fd3744391cae99ae41c3.js",
+        "/manifest.webmanifest",
+        "/polyfills.756663d0f5db1b371ba7.js",
+        "/runtime.10b7838008c8ff383822.js",
+        "/styles.a0b07037ef0a1fb6addc.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/not-found.png",
+        "/assets/pokeball.png",
+        "/assets/pokemon2.jpg",
+        "/assets/themes/deeppurple-amber.css",
+        "/assets/themes/indigo-pink.css",
+        "/assets/themes/pink-bluegrey.css",
+        "/assets/themes/purple-green.css"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "1f8f45c577f3da0a654a136c96ad0124ac522239",
+    "/assets/icons/icon-144x144.png": "a72f2d528837249761f13f58d5c388c8e97747a3",
+    "/assets/icons/icon-152x152.png": "f158842b5ad421040a54da7ba2643e14dea67c1e",
+    "/assets/icons/icon-192x192.png": "0851866f2d88d44e6c843d332d38462d9cf99637",
+    "/assets/icons/icon-384x384.png": "91184f700444a94b6935d05a43f63b4cf0449458",
+    "/assets/icons/icon-512x512.png": "d81d79b284ec0ecd548bc2da653333870b0b763e",
+    "/assets/icons/icon-72x72.png": "975a28f576d64a7a1f75ad7d79392c34c49391bc",
+    "/assets/icons/icon-96x96.png": "ddb794421f5d18939e0710d2f28baee813d6bd74",
+    "/assets/not-found.png": "84052d6f2fd0e2e5f9e36afd519b6e3cb9074f04",
+    "/assets/pokeball.png": "8d02bc039c1cab46391b0667a631aa148cc7ab40",
+    "/assets/pokemon2.jpg": "30dff870d9a0aa3b7610307d207a5c39fae54fc8",
+    "/assets/themes/deeppurple-amber.css": "ab6d858ec629d4322c2ad5ae08c33b211ec73c8f",
+    "/assets/themes/indigo-pink.css": "9c9a7745826ec6929f056ce37c542b8ae826f7e2",
+    "/assets/themes/pink-bluegrey.css": "ea3332513a373a500b71a983ad65d78d034a55ed",
+    "/assets/themes/purple-green.css": "a062b28272d4f81029651a64f225f04d411be992",
+    "/favicon.ico": "11908894def3944ff16bf9ffb035a55e790570c2",
+    "/index.html": "0b8cdb4bc00df46785da99d591ad5df5f45f818b",
+    "/main.fd3744391cae99ae41c3.js": "c47b74afee80f6e99a25f72b648a4a6416b25286",
+    "/manifest.webmanifest": "2b3cb9698d8f8a7914f26f5388087dd00d870ac9",
+    "/polyfills.756663d0f5db1b371ba7.js": "fb13dff9ecf3630b3e31fab3d1f6796e55235565",
+    "/runtime.10b7838008c8ff383822.js": "e5facaf088d1a4df9b2c586e817ee099b4e2f0ae",
+    "/styles.a0b07037ef0a1fb6addc.css": "8eae5834a0131bb339bf7691f5e6de2307122053"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
