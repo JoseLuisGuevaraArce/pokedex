@@ -20,7 +20,7 @@ mat-toolbar {
 
   .right-side {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     .search {
       height: 55px;
@@ -33,6 +33,24 @@ mat-toolbar {
             padding-top: 6px;
             width: 40em;
             height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 844px) {
+  mat-toolbar {
+    .left-side span {
+      display: none;
+    }
+    .right-side .search{
+      width: 100%;
+      p-input-text/deep/mat-form-field {
+        .mat-form-field-wrapper {
+          .mat-form-field-flex {
+            width: 100%;
           }
         }
       }

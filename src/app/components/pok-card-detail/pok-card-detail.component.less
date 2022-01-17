@@ -32,3 +32,38 @@ mat-card {
     }
   }
 }
+
+@media (max-width: 844px) {
+  mat-card {
+    .wrapper-image {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 25em;
+      }
+    }
+    mat-card-content {
+      margin-top: 15px;
+    }
+    mat-card-footer {
+      padding: 15px;
+      .pokemon-type {
+        display: flex;
+        flex-direction: column;
+        .wrapp-type {
+          display: flex;
+          .type-color {
+            flex: 1;
+            border-radius: 5px;
+            padding:  1px 15px;
+            margin: 0 5px;
+            span {
+              color: white;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
