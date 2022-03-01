@@ -8,6 +8,7 @@ import { StyleManagerService } from "./header/style-manager.service";
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from "./menu/menu.component";
 import { AddComponent } from './add/add.component';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddComponent } from './add/add.component';
   imports: [
     BrowserModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   providers: [StyleManagerService]
 })

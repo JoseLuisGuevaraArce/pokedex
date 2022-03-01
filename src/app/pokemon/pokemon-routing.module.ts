@@ -8,6 +8,7 @@ import { PokemonAddComponent } from "./add/pokemon-add.component";
 import { PokemonDetailComponent } from "./profile/pokemon-detail.component";
 import { PokemonPagesComponent } from "./pokemon-pages.component";
 import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.component";
+import { ListComponent } from "../items/list/list.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: '',
         component: VirtualScrollComponent,
+      },
+      {
+        path: 'items',
+        component: ListComponent,
       },
       {
         path: 'add-pokemon',
